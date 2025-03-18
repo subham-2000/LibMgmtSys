@@ -6,7 +6,7 @@ import com.example.librarymanagementsystem.dto.UserCreationResponse;
 import com.example.librarymanagementsystem.enums.Operator;
 import com.example.librarymanagementsystem.enums.UserFilter;
 import com.example.librarymanagementsystem.model.User;
-import com.example.librarymanagementsystem.service.UserService;
+import com.example.librarymanagementsystem.service.impl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package com.example.librarymanagementsystem.service;
+package com.example.librarymanagementsystem.service.impl;
 
 
 import com.example.librarymanagementsystem.dto.UserCreationRequest;
@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-
 public class UserService {
 
     @Autowired
@@ -46,4 +45,15 @@ public class UserService {
         }
         return new ArrayList<>();
     }
+
+    public User checkIfUserIsValid(String userEmail) {
+        return userRepository.findByEmail(userEmail);
+    }
 }
+// some methods are actually there, u can directly call from ur service
+// some methods not present in your jpa, then u are going to write queries ?
+
+// u have to write the body completely for filter method of userservice ?
+
+// book controller ?
+// crud book book creation, book filteration

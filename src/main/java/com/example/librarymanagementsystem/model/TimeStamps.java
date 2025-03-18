@@ -1,7 +1,20 @@
 package com.example.librarymanagementsystem.model;
 
-public class TimeStamps {
-    protected String createdOn;
+import jakarta.persistence.MappedSuperclass;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
-    protected String updatedOn;
+import java.util.Date;
+
+@MappedSuperclass
+@Getter
+@Setter
+
+public class TimeStamps {
+    @CreationTimestamp
+    protected Date createdOn;
+    @UpdateTimestamp
+    protected Date updatedOn;
 }

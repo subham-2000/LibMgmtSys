@@ -1,6 +1,7 @@
 package com.example.librarymanagementsystem.model;
 
 import com.example.librarymanagementsystem.enums.BookType;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -35,11 +36,19 @@ public class Book extends TimeStamps {
     @JoinColumn
     private User user;
 
-    @ManyToOne
-    @JoinColumn
+    @ManyToOne(cascade= CascadeType.ALL)
+    @JoinColumns({
+            @JoinColumn(name = "author_id", referencedColumnName = "id"),
+            @JoinColumn(name = "author_email", referencedColumnName = "email")
+    })
+    @JsonIgnoreProperties(value = "bookList")
     private Author author;
 
     @OneToMany(mappedBy = "book")
     private List<Txn> txnList;
 
 }
+// id as an single, composite key
+// 1 -> a1
+// 2-> a1
+// many to many
